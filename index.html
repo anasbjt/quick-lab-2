@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const url= 'https://breakingbadapi.com/api/characters';
+        fetch(url)
+            .then((response)=>response.json())
+            .then(console.log)
+        let getCharacters= fetch(url)
+            .then((response)=>response.json())
+        console.log(getCharacters)
+        let getNames = () => getCharacters
+            .then(array => array.map((actor)=>actor.name));
+        console.log(getNames())
+
+        getNames()
+            .then((names) => {
+                console.log('names',names)
+                document.write('<h2>Breacking Bad Characters</h2>')
+                document.write('<ul>')
+                    names.forEach(name => {
+                        document.write('<li>' + name +'</li>')
+                    });
+                document.write('</ul>')
+  
+
+            })
+    </script>
+    
+</body>
+</html>
